@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Kattis_C__.dir/main.cpp.o  -o Kattis_C__ 
