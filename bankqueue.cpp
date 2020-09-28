@@ -66,6 +66,7 @@ int main() {
     }
 
     sum += bankSchedule(vec,n+1);
-    cout << sum << endl;
+    cout << sum << endlk
+    ;
     return 0;
 }
