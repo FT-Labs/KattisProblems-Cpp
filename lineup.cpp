@@ -3,7 +3,7 @@ Author: Arda
 Company: PhysTech
 Date: 9/29/20
 */
-#include  <iostream>
+#include <iostream>
 #include <vector>
 using namespace  std;
 
@@ -13,11 +13,11 @@ int compare(string a, string b)
 }
 
 int main() {
-vector<string> names;
+    vector<string> names;
     int n;
     cin >> n;
 
-    for(int i=0;i<n;++i)
+    for(int i=1;i<n;++i)
     {
         string a;
         cin >> a;
@@ -50,7 +50,8 @@ vector<string> names;
             {
                 cout << "NEITHER" << endl;
                 return 0;
-            }
+                }
+
         }
         cout << "DECREASING" << endl;
 
