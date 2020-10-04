@@ -7,6 +7,8 @@ Date: 10/1/20
 #include <cstdio>
 #include <vector>
 #include <map>
+#include <bits/stdc++.h>
+
 
 using namespace std;
 
