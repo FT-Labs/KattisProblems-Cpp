@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+	string s; cin >> s;
+
+	int half = s.length()/2;
+
+	int totl = 0;
+	int totr = 0;
+
+	for(int i=0; i<s.size(); i++)
+	{
+		if(i < half)
+			totl += s[i] - 'A';
+		else
+			totr += s[i] -'A';
+	}
+
+	totl %= 25; totr %= 25;
+
+	for(int i=0; i<s.size(); i++)
+	{
+		int add = (totl + totr + s[i+half] - 'A')%25 - 1;
+
+		cout << add << endl;
+		break;
+
+
+		if(s[i] + add > 'Z')
+			s[i] = (s[i] + add) - 'Z' + 'A';
+		else
+			s[i] += add;
+	}
+
+
+	cout << s.substr(0, half) << endl;
+
+
+
+
+	return 0;
+}
