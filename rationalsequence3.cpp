@@ -3,37 +3,40 @@
 using namespace std;
 
 
+void rec(int n, int* p, int* q)
+{
+	if(n == 1)
+	{
+		*p=1, *q=1;
+		return;
+	}
+
+	rec(n/2, p, q);
+
+	if(!(n&1))
+		*p += *q;
+	else
+		*q += *p;
+
+	return;
+
+}
+
+
 int main()
 {
 	stack<char> s;
 
 	int n; cin >> n;
 	int index, node;
+
 	while(n--)
 	{
 		cin >> index >> node;
+		int p = 0, q = 0;
 
-		while(node != 1)
-		{
-			if((node&1))
-				s.push('R');
-			else
-				s.push('L');
+		rec(node, &p, &q);
 
-			node /= 2;
-		}
-
-		int p = 1, q = 1;
-
-		while(!s.empty())
-		{
-			if(s.top() == 'R')
-				q = p + q;
-			else
-				p = p + q;
-
-			s.pop();
-		}
 
 
 		cout << index << ' ' << q << '/' << p << endl;
