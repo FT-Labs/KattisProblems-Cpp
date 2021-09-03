@@ -8,7 +8,6 @@ long tot = 0;
 
 void getMedians(int arr[], int n)
 {
-	// max heap to store smaller half elements
 	priority_queue<int> maxHeapSmaller;
 
 	//min heap to store greater half elements
@@ -19,10 +18,6 @@ void getMedians(int arr[], int n)
 	maxHeapSmaller.push(arr[0]);
 
 
-	/*
-	   At any time heaps need to be balanced. Therefore their sizes must be differ by maximum of 1.
-	   If heaps are balanced, declare median as average of minHeapRight.top() and maxHeapLeft.top().
-	   If they are unbalanced, then  the median is defined as top element of heap with larger size. */
 
 	for(int i=1; i<n; i++)
 	{
