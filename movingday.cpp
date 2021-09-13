@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+	long n, V; cin >> n >> V;
+
+	long mx = 0;
+
+	long a,b,c;
+	while(n--)
+	{
+		cin >> a >> b >> c;
+		mx = max(mx, a*b*c);
+	}
+
+
+	cout << mx-V << endl;
+
+
+	return 0;
+}

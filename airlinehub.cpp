@@ -33,7 +33,7 @@ int main()
 			z[i] = R * sin(w);
 		}
 
-		double mx, mn = 1e+30, rx = W[0], ry = THETA[0];
+		double mx, mn = 1e20, rx = W[0], ry = THETA[0];
 
 		for(int i=0; i<n; i++)
 		{
