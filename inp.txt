@@ -1,9 +1,14 @@
-3 3
-oTs
-nwi
-eox
-3 4
-xAxa
-yByb
-zCyc
-0 0
+OPEN
+ENTER Sam 0
+ENTER Alice 15
+EXIT Sam 20
+EXIT Alice 700
+CLOSE
+OPEN
+ENTER Sam 5
+ENTER Alice 10
+EXIT Sam 20
+EXIT Alice 35
+ENTER Sam 700
+EXIT Sam 710
+CLOSE
