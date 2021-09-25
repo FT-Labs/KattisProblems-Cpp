@@ -3,6 +3,28 @@
 using namespace std;
 
 
+int arr[100];
+int maxV = 1;
+
+//Another way to solve
+void solve(string s, int size)
+{
+	if(size <= 0)
+		return;
+
+	solve(s, size-1);
+	arr[size] = 1;
+	for(int i=0; i<size; i++)
+	{
+		if(s[i] < s[size])
+		{
+			arr[size] = max(arr[size], arr[i]+1);
+			maxV = max(maxV, arr[size]);
+		}
+	}
+}
+
+
 int main()
 {
 	string s; cin >> s;
@@ -23,6 +45,8 @@ int main()
 			}
 		}
 	}
+
+	solve(s, s.size());
 
 
 	cout << 26-mx << endl;
