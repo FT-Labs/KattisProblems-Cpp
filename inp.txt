@@ -1,4 +1,9 @@
-3
-4 5 8
-3
-11 13 14
+dog ogday
+cat atcay
+pig igpay
+froot ootfray
+loops oopslay
+
+atcay
+ittenkay
+oopslay
