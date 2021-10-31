@@ -1,16 +1,14 @@
 #include <iostream>
+#include <set>
 #include <queue>
 #include <algorithm>
 #include <vector>
 using namespace std;
 
-bool cmp(pair<int, int>& p1, pair<int,int>& p2)
-{
-	return p1.second<p2.second;
-}
 
 int main()
 {
+	//Use greedy alg, but with early starting priority, not ending.
 	priority_queue<pair<int,int>, vector<pair<int, int>>, greater<pair<int,int>>> pq;
 
 	int n, maxMin; cin >> n >> maxMin;
@@ -20,25 +18,27 @@ int main()
 	for (int i=0; i<n; i++)
 	{
 		cin >> s >> e;
-		pq.push({s+e, e});
+		pq.push({s, s+e});
 	}
 
-	int curEnd = 0;
+	multiset<int> ms;
+
 	int tot = 0;
 
 	while (!pq.empty())
 	{
 		auto cur = pq.top(); pq.pop();
+		auto it = ms.lower_bound(cur.first- maxMin);
 
-		if (curEnd != 0 && cur.second - curEnd >= maxMin)
+		if (it != ms.end() && *it <= cur.first)
+		{
+			ms.erase(it);
 			tot++;
-
-		curEnd = cur.second;
+		}
+		ms.insert(cur.second);
 	}
 
 	cout << tot << endl;
-
-
 
 	return 0;
 }
