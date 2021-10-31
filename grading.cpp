@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
 	int arr[5];
-	map<int, string> mp = {{1, "D"}, {2, "C"}, {3, "B"}, {4, "A"}};
+	map<int, string> mp = {{0, "E"},{1, "D"}, {2, "C"}, {3, "B"}, {4, "A"}};
 
 	for (int i=0; i<5; i++)
 		cin >> arr[i];
@@ -14,19 +14,21 @@ int main()
 
 	int cur; cin >> cur;
 
-	for (int i=0; i<5; i++)
+	for (int i=0; i<4; i++)
 	{
 		if (cur<arr[i] && !i)
 		{
 			cout << "F" << endl;
-			break;
+			return 0;
 		}
-		else if (cur>=arr[i] && cur<=arr[i])
+		else if (cur>=arr[i] && cur<arr[i+1])
 		{
 			cout << mp[i] << endl;
-			break;
+			return 0;
 		}
 	}
+
+	cout << "A" << endl;
 
 
 	return 0;
