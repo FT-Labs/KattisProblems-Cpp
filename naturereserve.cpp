@@ -57,44 +57,23 @@ int main()
 	while (q--)
 	{
 		int n, m, l, s; cin >> n >> m >> l >> s;
-		int st; cin >> st;
 
 		rnk = new int[n+1], parent = new int[n+1];
 
 		reset(n+1);
 
+		vector<pair<int, pair<int, int>>> edges(s+m, {0, {-1, 0}});
 
-		vector<vector<pair<int, pair<int, int>>>> edges;
+		for (int i=0; i<s; i++)
+			cin >> edges[i].second.first;
+		for (int i=0; i<m; i++)
+			cin >> edges[s + i].second.first >> edges[s + i].second.second >> edges[s + i].first;
 
-		for (int i=0; i<st; i++)
-		{
-			int w, x, y; cin >>  x >> y >> w;
-			edges.push_back({{w, {x, y}}});
-		}
+		sort(edges.begin(), edges.end());
 
-		for (int i=0; i<m-st; i++)
-		{
-			int w, x, y; cin >> x >> y >> w;
+		cout << kruskal(edges, n+1) + 1ll * (n - s) * l  << endl;
 
-			edges[0].push_back({w, {x,y}});
-		}
-
-		int ans = 0;
-
-		auto swp = edges[0][0];
-		for (int i=0; i<edges.size(); i++)
-		{
-			swap(edges[i][0], *find(edges[0].begin(), edges[0].end(), swp));
-			swp = edges[0][0];
-			sort(edges[0].begin(), edges[0].end());
-			ans += kruskal(edges[0], n+1) ;//+ l;
-			reset(n+1);
-		}
-
-
-		cout <<  fixed << ans-n+1 << endl;
-
-//		delete[] rnk, parent;
 	}
+	delete[] rnk, parent;
 	return 0;
 }
