@@ -25,8 +25,8 @@ int main()
 
 			if (i < 0)
 			{
-				flag = false;
-				break;
+				cout << "Out" << endl;
+				return 0;
 			}
 		}
 		else if (grid[i][j] == 'S')
@@ -70,7 +70,7 @@ int main()
 	}
 
 
-	cout << (cnt <= w*h ? to_string(cnt) : "Lost") << endl;
+	cout << (cnt < w*h ? to_string(cnt) : "Lost") << endl;
 
 
 
