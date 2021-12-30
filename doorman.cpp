@@ -11,28 +11,28 @@ int main()
 
 	int diff = 0, tot = 0;
 
-	queue<int> qu;
-
-	for (auto ch : s)
+	for (int i=0; i<s.size(); i++)
 	{
-		if (ch == 'W')
+		if (s[i] == 'W')
 			diff--;
 		else
 			diff++;
 
-
-		while (!qu.empty() && abs(diff) > maxAbs)
+		if (i < s.size()-1 && abs(diff) > maxAbs)
 		{
-			tot = max(tot, (int)qu.size());
-			diff += qu.front(); qu.pop();
-		}
+			if ((diff < 0 && s[i+1] == 'M') || (diff > 0 && s[i+1] == 'W'))
+			{
+				tot++;
+				continue;
+			}
+			else
+				break;
 
-		qu.push((ch == 'W' ? -1 : 1));
+		}
+		tot++;
 	}
 
-	cout << (tot > qu.size() ? tot : qu.size()) << endl;
-
-
+	cout << tot << endl;
 
 	return 0;
 }
