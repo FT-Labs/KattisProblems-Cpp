@@ -16,16 +16,17 @@ int main()
 
 		int fact = 4;
 		long double ans = PI * r * r;
-		r /= 2;
 
-		for (int i=1; i<n; i++)
+		long double add = ans;
+
+		for (int i=0; i<n-1; i++)
 		{
-			ans += (PI * r * r) * fact;
-			fact *= 3;
-			r /= 2;
+			ans += add;
+			add *= 0.75;
 		}
 
-		cout.precision(6);
+
+		cout.precision(10);
 
 		cout << fixed << ans << endl;
 	}
