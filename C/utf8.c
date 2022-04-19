@@ -13,14 +13,14 @@ int main ()
 	scanf("%d", &n);
 
 	int utf_type = 0, cnt = -1;
-	char *cur = (char*) malloc(9);
+	char cur[10];
 
 	while (n--)
 	{
 		scanf("%s", cur);
 		if (cnt > 0)
 		{
-			if (cur[0] != '1' && cur[1] != '0')
+			if (cur[0] != '1' || cur[1] != '0')
 			{
 				printf("invalid\n");
 				return 0;
@@ -36,10 +36,11 @@ int main ()
 		else
 		{
 			int ones = 0;
-			while((*cur) == '1' && ones < 5)
+			char *curr = cur;
+			while((*curr) == '1' && ones < 5)
 			{
 				ones++;
-				cur++;
+				curr++;
 			}
 
 			if (ones > 4 || ones == 1)
