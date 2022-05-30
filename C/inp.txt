@@ -1,12 +1,3 @@
-5
-alf
-beata
-cornelius
-dagmar
-eloise
-5
-leave eloise
-cut fritiof cornelius
-leave dagmar
-cut germund alf
-leave cornelius
+this line is short
+this one is a bit longer
+and this is the longest of all.
