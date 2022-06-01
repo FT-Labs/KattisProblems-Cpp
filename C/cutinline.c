@@ -15,18 +15,11 @@ void cut(char *node_val, char *before, Node **head)
     strcpy(new_node->name, node_val);
     Node **indirect = head;
 
-    if (!strcmp((*indirect)->name, before))
-    {
-        new_node->next = *indirect;
-        *indirect = new_node;
-        return;
-    }
-
-    while (strcmp((*indirect)->next->name, before))
+    while (strcmp((*indirect)->name, before))
         indirect = &(*indirect)->next;
 
-    new_node->next = (*indirect)->next;
-    (*indirect)->next = new_node;
+    new_node->next = (*indirect);
+    (*indirect) = new_node;
 }
 
 void erase(char *to_erase, Node **head)

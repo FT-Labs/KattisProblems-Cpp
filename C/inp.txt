@@ -1,5 +1,10 @@
 4
-1 1
-2 7
-3 383
-4 1000
+a
+b
+c
+d
+4
+cut e b
+leave d
+leave a
+cut f e
