@@ -9,25 +9,21 @@ struct Node
     Node *next;
 };
 
-void cut(char *node_val, char *before, Node **head)
-{
-    Node *new_node = malloc(sizeof(Node));
-    strcpy(new_node->name, node_val);
-    Node **indirect = head;
-
-    while (strcmp((*indirect)->name, before))
-        indirect = &(*indirect)->next;
-
-    new_node->next = (*indirect);
-    (*indirect) = new_node;
-}
-
-void erase(char *to_erase, Node **head)
+void erase(char *to_erase, char *name, Node **head)
 {
     Node **indirect = head;
     while (strcmp((*indirect)->name, to_erase))
         indirect = &(*indirect)->next;
-    *indirect = (*indirect)->next;
+
+    if (name)
+    {
+        Node *new_node = malloc(sizeof(Node));
+        strcpy(new_node->name, name);
+        new_node->next = *indirect;
+        *indirect = new_node;
+    }
+    else
+        *indirect = (*indirect)->next;
 }
 
 int main ()
@@ -59,13 +55,13 @@ int main ()
         {
             char name[21];
             scanf("%s", name);
-            erase(name, &head);
+            erase(name, NULL, &head);
         }
         else
         {
             char name1[21], name2[21];
             scanf("%s %s", name1, name2);
-            cut(name1, name2, &head);
+            erase(name2, name1, &head);
         }
     }
 
