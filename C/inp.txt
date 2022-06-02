@@ -1,10 +1,6 @@
+5 1
+1
+2
+3
 4
-a
-b
-c
-d
-4
-cut e b
-leave d
-leave a
-cut f e
+5
