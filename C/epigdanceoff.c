@@ -44,6 +44,12 @@ int main ()
 
     printf("%d\n", solve(arr, n, m));
 
+    for (int i = 0; i < n; i++)
+    {
+        free(arr[i]);
+    }
+    free(arr);
+
 
     return 0;
 }
